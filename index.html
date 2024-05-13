@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dream</title>
+</head>
+
+<body>
+    <h1>hiii</h1>
+
+    <script>
+
+        console.log("hi");
+
+        function sumOfEvenNumbers1(num) {
+            var result = 0;
+            for (let i = 0; i <= num; i++) {
+                if (i % 2 == 0) {
+                    result += i;
+                }
+            }
+            return result;
+        }
+        //===================
+        // function sumOfEvenNumbers(num){
+        //     let result = 0;
+        //     if (num == 0 || num == 1){
+        //         result = 0;
+        //     }
+        //     else if (num % 2 == 0){
+        //         for(let i = 2; i <= num; i+=2){
+        //             console.log(i);
+        //             result += i;
+        //         }
+        //     }
+        //     else{
+        //         for(let i = 2; i < num; i+=2){
+
+        //             console.log(i);
+        //             result += i;
+        //         }
+        //     }
+
+        //     return result;
+        // }
+
+        /*
+            Q 1: 
+
+            The function called sumOfEvenNumbers takes the parameter named num
+
+            - First inside the function declare the variable named result to hold the sum of even numbers.
+            - The second loop passes every even number in the input number and adds it to the result
+            - finally the the loop finished , the function return the result varaiable as output of it.
+
+            Note:
+                - The loop starts at index 2 because there is no need to index 0 and 1
+                - The increment process increases by 2 because there is no need for odd indexes
+        */
+        function sumOfEvenNumbers(num) {
+            let result = 0;
+            for (let i = 2; i <= num; i += 2) {
+                result += i;
+            }
+
+            return result;
+        }
+        
+        console.log(sumOfEvenNumbers(10)); // Output: The sum of even numbers from 1 to 10 is: 30
+        console.log(sumOfEvenNumbers(22)); // Output: The sum of even numbers from 1 to 22 is: 132
+        console.log(sumOfEvenNumbers(21)); // Output: The sum of even numbers from 1 to 21 is: 110
+        console.log(sumOfEvenNumbers(1));  // Output: The sum of even numbers from 1 to 1 is: 0
+        console.log(sumOfEvenNumbers(0));  // Output: The sum of even numbers of 0 is: 0
+        console.log(sumOfEvenNumbers(-22));// Output: The sum of even numbers of -22 is: 0
+        console.log('===============');
+        //==============================
+
+        console.log('>>>>>>>>>>>>>>>>>>>')
+        function isPalindrome(str) {
+            // Remove spaces and punctuation marks from the string
+            const cleanStr = str.replace(/[\W_]/g, "").toLowerCase();
+
+            // Reverse the string
+            const reversedStr = cleanStr.split("").reverse().join("");
+
+            // Check if the clean string and the reversed clean string are equal
+            if (cleanStr === reversedStr) {
+                return "Palindrome";
+            } else {
+                return "Not a Palindrome";
+            }
+        }
+        /*
+            Q 2: 
+
+            - First inside the function declare the variable named cleanStr to hold the string value after
+               remove all non-alphanumeric characters from the string using a regular expression (`/[\W_]/g`).
+            - Then the `while` loop pass in every character in the string ,
+              which continues until `start` is less than `end`, to checking whether 
+              the characters at the start and end positions are equal.
+            - finally when the loop finished , the function return string :
+               1- If any unequal characters are found, the function returns "Not a Palindrome".
+               2- If the loop completes without finding any unequal characters, the function returns "Palindrome".
+        
+        */
+        function isPalindrome(str) {
+            // Remove  punctuation marks from the string
+            const cleanStr = str.replace(/[\W_]/g, "").toLowerCase();
+
+            // Iterate from both ends of the string
+            let start = 0;
+            let end = cleanStr.length - 1;
+            while (start < end) {
+                // Compare characters at start and end positions
+                if (cleanStr[start] !== cleanStr[end]) {
+                    return "Not a Palindrome";
+                }
+                start++;
+                end--;
+            }
+
+            return "Palindrome";
+        }
+        console.log(isPalindrome('A man, a plan, a canal, Panama!'));    // Output: Palindrome
+        console.log(isPalindrome('1+23*32/1'));  // Output: Palindrome
+        console.log(isPalindrome('zainab'));  // Output: Not a Palindrome
+
+
+        
+    </script>
+    <script src="./chalenges.js"></script>
+</body>
+
+</html>
