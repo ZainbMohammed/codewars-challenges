@@ -254,7 +254,29 @@ Examples
 pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
 pigIt('Hello world !');     // elloHay orldway !
 */
+function pigIt(str) {
+  // Helper function to convert a word to Pig Latin
+  const convertToPigLatin = (word) => {
+      if (/^[a-zA-Z]+$/.test(word)) {  // Check if the word contains only letters
+          const firstLetter = word.charAt(0);
+          return word.slice(1) + firstLetter + 'ay';
+      }
+      return word;  // Return unchanged if the word contains non-letter characters
+  };
 
+  // Split the string into words using whitespace as the delimiter, then map and convert each word
+  const pigLatinWords = str.split(' ').map(convertToPigLatin);
+
+  // Join the modified words back into a string
+  return pigLatinWords.join(' ');
+}
+function pigIt2(str) {
+  var arrayWord = str.split(' ');
+  return arrayWord.map(function(word) {
+    var firstLetter = word.charAt(0);
+    return word.slice(1) + firstLetter + 'ay';
+  }).join(' ');
+}
 
 // ======== Jisr ===========
 
@@ -271,7 +293,7 @@ function addTwoNumbers(l1,l2){
     carry = Math.floor(sum / 10);
     result.push(sum % 10) ;
 
-    i++;
+    count++;
 
   }
   return result;
@@ -280,3 +302,31 @@ function addTwoNumbers(l1,l2){
 console.log(addTwoNumbers([2,4,3],[5,6,4]));
 console.log(addTwoNumbers([0],[0]));
 console.log(addTwoNumbers([9,9,9,9,9,9,9],[9,9,9,9]));
+
+
+function isValid(s){
+  let stack = [];
+  const bracketPairs = {
+    ')':'(',
+    '}':'{',
+    ']':'['
+  }
+
+  for(const char of s){
+    if (char === '(' || char === '{' || char === '['){
+      stack.push(char);
+    }
+    else{
+      if(stack.length === 0 || stack.pop() !== bracketPairs[char]){
+        return false
+      }
+    }
+    return stack.length === 0;
+  }
+}
+
+console.log('===== s is valis () ======')
+console.log(isValid('()'));
+console.log(isValid('()[]{}'));
+console.log(isValid('(]'));
+console.log(isValid('{[]}')); 
