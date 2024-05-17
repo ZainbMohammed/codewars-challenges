@@ -254,3 +254,29 @@ Examples
 pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
 pigIt('Hello world !');     // elloHay orldway !
 */
+
+
+// ======== Jisr ===========
+
+function addTwoNumbers(l1,l2){
+  let carry = 0;
+  let result = [];
+  let count = 0
+
+  while(count < l1.length || count < l2.length || carry >0){
+    const dig1 = count < l1.length ? l1[count] : 0;
+    const dig2 = count < l2.length ? l2[count] : 0;
+
+    const sum = dig1 + dig2 + carry;
+    carry = Math.floor(sum / 10);
+    result.push(sum % 10) ;
+
+    i++;
+
+  }
+  return result;
+}
+
+console.log(addTwoNumbers([2,4,3],[5,6,4]));
+console.log(addTwoNumbers([0],[0]));
+console.log(addTwoNumbers([9,9,9,9,9,9,9],[9,9,9,9]));
