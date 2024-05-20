@@ -1,1 +1,1 @@
-Challenges using JS
+Codewars Challenges using JS
