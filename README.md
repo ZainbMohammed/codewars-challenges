@@ -1,1 +1,1 @@
-Challenges using js
+Challenges using JS
